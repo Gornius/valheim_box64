@@ -2,7 +2,7 @@ version: "3"
 
 services:
   valheim_box64:
-    image: c15u/valheim_box64
+    image: ghcr.io/gornius/valheim_box64
     environment:
       - VALHEIM_SERVER_NAME=ValheimARM64
       - VALHEIM_WORLD_NAME=ValheimARM64
