@@ -4,15 +4,15 @@ services:
   valheim_box64:
     image: ghcr.io/gornius/valheim_box64
     environment:
-      - VALHEIM_SERVER_NAME=ValheimARM64
-      - VALHEIM_WORLD_NAME=ValheimARM64
-      - VALHEIM_PASSWORD=VARM64PASS
-      - VALHEIM_ISPUBLIC=0
-      - VALHEIM_PORT=2456
+      - VALHEIM_SERVER_NAME=${SERVER_NAME:-GorniusValheimBox64}
+      - VALHEIM_WORLD_NAME=${WORLD_NAME:-Box64World}
+      - VALHEIM_PASSWORD=${PASSWORD:-box64pass}
+      - VALHEIM_ISPUBLIC=${ISPUBLIC:-0}
+      - VALHEIM_PORT=${PORT:-2456}
     ports:
       - "2456:2456/udp"
       - "2457:2457/udp"
     volumes:
       - "./server_files/:/root/server_files"
-      - "./worlds:/root/.config/unity3d/IronGate/Valheim/worlds/"
+      - "./worlds:/root/.config/unity3d/IronGate/Valheim/worlds_local/"
     restart: unless-stopped
