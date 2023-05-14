@@ -14,5 +14,5 @@ services:
       - "2457:2457/udp"
     volumes:
       - "./server_files/:/root/server_files"
-      - "./worlds:/root/.config/unity3d/IronGate/Valheim/worlds_local/"
+      - "./server_data/:/root/.config/unity3d/IronGate/Valheim/"
     restart: unless-stopped
