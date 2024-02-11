@@ -2,7 +2,7 @@ version: "3"
 
 services:
   valheim_box64:
-    image: ghcr.io/gornius/valheim_box64
+    image: ghcr.io/gornius/valheim_box64:240201
     environment:
       - VALHEIM_SERVER_NAME=${SERVER_NAME:-GorniusValheimBox64}
       - VALHEIM_WORLD_NAME=${WORLD_NAME:-Box64World}
@@ -10,8 +10,9 @@ services:
       - VALHEIM_ISPUBLIC=${ISPUBLIC:-0}
       - VALHEIM_PORT=${PORT:-2456}
     ports:
-      - "2456:2456/udp"
-      - "2457:2457/udp"
+      - 2456:2456/udp
+      - 2457:2457/udp
+      - 2458:2458/udp
     volumes:
       - "./server_files/:/root/server_files"
       - "./server_data/:/root/.config/unity3d/IronGate/Valheim/"

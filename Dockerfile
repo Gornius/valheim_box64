@@ -10,10 +10,10 @@ apt-get update && apt-get install -y curl libc6:armhf vim git cmake python3 gcc-
 WORKDIR /root
 # Install box86
 RUN \
-git clone https://github.com/ptitSeb/box86 --branch v0.2.8;\
+git clone https://github.com/ptitSeb/box86 --branch v0.3.4;\
 cd box86;\
-mkdir build; cd build; cmake .. -DRPI4ARM64=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo;\
-make -j2;\
+mkdir build; cd build; cmake .. -DARM64=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo;\
+make -j$(nproc);\
 make install
 
 # Install steamcmd
@@ -23,10 +23,10 @@ curl -sqL "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.g
 
 # Install box64
 RUN \
-git clone https://github.com/ptitSeb/box64 --branch v0.2.0;\
+git clone https://github.com/ptitSeb/box64 --branch v0.2.6;\
 cd box64;\
-mkdir build; cd build; cmake .. -DRPI4ARM64=1 -DCMAKE_BUILD_TYPE=RelWithDebInfo;\
-make -j2;\
+mkdir build; cd build; cmake .. -DARM_DYNAREC=ON -DCMAKE_BUILD_TYPE=RelWithDebInfo;\
+make -j$(nproc);\
 make install
 
 # Clean up build process
@@ -37,6 +37,6 @@ apt-get autoremove --purge -y curl vim git cmake python3 gcc-arm-linux-gnueabihf
 
 ADD scripts /root
 
-EXPOSE 2456-2457/udp
+EXPOSE 2456-2458/udp
 
 CMD [ "/bin/sh", "run.sh"]
