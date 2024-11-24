@@ -1,4 +1,4 @@
-# STATUS: WORKING AS OF 2024-02-11! (Tested @ Ampere AARCH64 CPU)
+# STATUS: WORKING AS OF 2024-11-24! (Tested @ Ampere AARCH64 CPU)
 
 # Valheim server for AARCH64 (ARM64) working thorugh Box64
 
